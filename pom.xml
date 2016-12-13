@@ -8,6 +8,8 @@
   <modules>
     <module>Netty</module>
       <module>Zook</module>
+      <module>NettyRPC</module>
+      <module>Base</module>
   </modules>
   <packaging>pom</packaging>
 
