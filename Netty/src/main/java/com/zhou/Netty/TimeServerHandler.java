@@ -7,15 +7,14 @@ package com.zhou.Netty;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerAdapter;
-import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.*;
 
 import java.util.Date;
 
 /**
  * 处理器
  */
-public class TimeServerHandler extends ChannelHandlerAdapter {
+public class TimeServerHandler extends SimpleChannelInboundHandler {
 
     public void channelRead(ChannelHandlerContext ctx,Object msg)throws Exception{
         ByteBuf buf = (ByteBuf) msg;
@@ -29,6 +28,10 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body)?new Date(System.currentTimeMillis()).toString():"BAD ORDER";
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         ctx.write(resp);
+    }
+
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+
     }
 
     public void channelReadComplete(ChannelHandlerContext ctx)throws Exception{

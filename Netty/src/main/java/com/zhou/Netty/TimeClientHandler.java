@@ -3,6 +3,7 @@ package com.zhou.Netty;
 import com.zhou.NIO.TimeClientHandle;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -11,7 +12,7 @@ import java.util.logging.Logger;
 /**
  * Created by Administrator on 2016/11/30.
  */
-public class TimeClientHandler extends ChannelHandlerAdapter{
+public class TimeClientHandler extends ChannelDuplexHandler {
 
     private static final Logger logger = Logger.getLogger(TimeClientHandle.class.getName());
 
