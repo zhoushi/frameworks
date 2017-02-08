@@ -14,6 +14,7 @@
       <module>MQ</module>
       <module>Cache</module>
       <module>Search</module>
+      <module>MVC</module>
   </modules>
   <packaging>pom</packaging>
 
