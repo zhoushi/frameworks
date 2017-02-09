@@ -64,4 +64,18 @@ NIO中使用的Reactor模式
 AIO中使用的Proactor模式
 ```
 
-* 
+* 阿里巴巴java开发手册
+```
+集合处理：1：Set存储的是不重复的对象，依据hashCode和equals进行判断，所以Set存储的对象必须重写这两个方法，如果自定义对象
+为map的键则要重写hashcode和equals
+          2：使用集合转数组的方法，必须使用集合的toArray(T[] array),传入的是类型完全一样的数组，大小就是list.size()
+          3：使用工具类Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法
+          4：在JDK7版本以上，Comparator要满足自反性，传递性，对称性，不然Arrays.sort,Collections.sort会报IllegaArgumentE
+          xception异常
+
+工程规约： 1：分层领域模型规约
+                DO(Data Object):与数据库表结构一一对应，通过DAO层向上传输数据源对象
+                DTO(Data Transfer Object):数据传输对象，Service和Manager向外传输的对象
+                BO(Business Object):业务对象 可以由Service层输出的封装业务逻辑的对象
+                VO(View Object):显示层对象，通常是web向模板渲染引擎层传输的对象
+```
